@@ -7,7 +7,7 @@ import traceback#
 app = Flask(__name__)
 
 #directory where whoosh index is located
-INDEX_DIR = 'indexdir'
+index_dir = 'indexdir'
 
 @app.route('/')
 def home():
@@ -35,7 +35,7 @@ def search():
         results = searcher.search(query_obj)
 
         return render_template('search_results.html', query=query, results=results)
-        
+
 #run the flask app in debug mode
 if __name__ == '__main__':
     app.run(debug=True)
