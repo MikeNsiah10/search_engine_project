@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 from whoosh.index import open_dir
 from whoosh.qparser import QueryParser
 import traceback
@@ -13,7 +13,7 @@ index = open_dir(index_dir)
 @app.route('/')
 def home():
     # Render the HTML template for the search form
-    return render_template('search_form.html')
+    return render_template('search_form.html', search_url=url_for('search'))
 
 @app.route('/search')
 def search():
