@@ -7,7 +7,7 @@ import traceback#
 app = Flask(__name__)
 
 #directory where whoosh index is located
-index_dir = 'indexdir'
+index_dir = "indexdir"
 
 @app.route('/')
 def home():
@@ -19,7 +19,7 @@ def home():
 def internal_error(exception):
    return "<pre>"+traceback.format_exc()+"</pre>"
 
-@app.route('/search')
+@app.route('/search',methods=['GET'])
 def search():
     # Get the search query from the request parameters
     query = request.args.get('q', '')
@@ -27,11 +27,11 @@ def search():
     if not query:
         return 'No search query provided.'
     #open whoosh index directory
-    index = open_dir(INDEX_DIR)
+    index = open_dir(index_dir)
     #perform search and return search results
     with index.searcher() as searcher:
         query_parser = QueryParser("content", index.schema)
-        query_obj = query_parser.parse(query)
+        query_object = query_parser.parse(query)
         results = searcher.search(query_obj)
 
         return render_template('search_results.html', query=query, results=results)
