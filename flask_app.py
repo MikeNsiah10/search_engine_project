@@ -38,5 +38,5 @@ def search():
 
 #run the flask app in debug mode
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
 
