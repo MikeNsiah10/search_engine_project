@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from whoosh.index import open_dir
 from whoosh.qparser import QueryParser
-import traceback#
+import traceback
 
 #initialise flask app
 app = Flask(__name__)
