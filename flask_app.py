@@ -19,7 +19,7 @@ def home():
 def internal_error(exception):
    return "<pre>"+traceback.format_exc()+"</pre>"
 
-@app.route('/search',methods=['GET'])
+@app.route('/search')
 def search():
     # Get the search query from the request parameters
     query = request.args.get('q', '')
