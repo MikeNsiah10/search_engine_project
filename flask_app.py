@@ -5,7 +5,6 @@ import traceback
 
 app = Flask(__name__)
 
-# Replace 'indexdir' with the actual path to your index directory
 INDEX_DIR = 'indexdir'
 
 @app.route('/')
