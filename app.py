@@ -14,10 +14,6 @@ index = open_dir(index_dir)
 def home():
     return render_template('search_form.html')
 
-@app.errorhandler(500)
-def internal_error(exception):
-   return "<pre>"+traceback.format_exc()+"</pre>"
-
 
 @app.route('/')
 def home():
@@ -41,6 +37,12 @@ def search():
         results = searcher.search(query_obj)
 
         return render_template('search_results.html', query=query, results=results)
+
+
+@app.errorhandler(500)
+def internal_error(exception):
+   return "<pre>"+traceback.format_exc()+"</pre>"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
