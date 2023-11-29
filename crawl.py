@@ -71,7 +71,7 @@ class Crawler():
         with index.searcher() as searcher:
             query = QueryParser("content", index.schema).parse(" ".join(words))
             results = searcher.search(query)
-            
+            # return results of search with title,url,teaser_text
             for result in results:
                 print("Title:", result['title'])
                 print("URL:", result['path'])
@@ -79,8 +79,8 @@ class Crawler():
                 print()
 
 # testing code
-
+#create an instance of the crawler class
 crawler = Crawler(urls=['https://vm009.rz.uos.de/crawl/index.html'])
 crawler.crawl()
 crawler.create_index()
-crawler.search(["platypus","welcome"])
+#crawler.search(["platypus","welcome"])
