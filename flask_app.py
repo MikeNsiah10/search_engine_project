@@ -10,7 +10,10 @@ app = Flask(__name__)
 index_dir = 'indexdir'
 index = open_dir(index_dir)
 
-#handle internal server error
+@app.route('/')
+def home():
+    return render_template('search_form.html')
+
 @app.errorhandler(500)
 def internal_error(exception):
    return "<pre>"+traceback.format_exc()+"</pre>"
@@ -39,7 +42,6 @@ def search():
 
         return render_template('search_results.html', query=query, results=results)
 
-#run the flask app in debug mode
 if __name__ == '__main__':
     app.run(debug=True)
 

@@ -83,4 +83,4 @@ class Crawler():
 crawler = Crawler(urls=['https://vm009.rz.uos.de/crawl/index.html'])
 crawler.crawl()
 crawler.create_index()
-#crawler.search(["platypus","welcome"])
+crawler.search(["platypus","welcome"])
