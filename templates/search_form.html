@@ -6,8 +6,8 @@
     <title>QueryQuest</title>
 </head>
 <body>
-    <h1>Query_Search Form</h1>
-    <form action="/search" method="get">
+    <h1>Query Search Form</h1>
+    <form action="{{ url_for('search') }}" method="get">
         <input type="text" id="query" placeholder="Enter your search query" name="q" required>
         <input type="submit" value="Search">
     </form>
