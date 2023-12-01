@@ -2,24 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/results_style.css') }}">
     <title>Search Results</title>
 </head>
 <body>
-    <h1>Search Results for "{{ query }}"</h1>
+    <h1>Search Results for the query</h1>
+    <p>Query: {{ query }}</p>
     
     {% if results %}
         <ul>
             {% for result in results %}
                 <li>
-                    <strong>Title:</strong> {{ result['title'] }}<br>
-                    <strong>URL:</strong> <a href="{{ result['path'] }}" target="_blank">{{ result['path'] }}</a><br>
-                    <strong>Teaser Text:</strong> {{ result.highlights("content") }}
+                    <h2><a href="{{ result['path'] }}" >{{ result['title'] }}</a></h2>
+                    <p><strong>URL:</strong> <a href="{{ result['path'] }}">{{ result['path'] }}</a></p>
+                    <p><strong>Teaser Text:</strong> {{ result['content'][:200] }}...</p>
                 </li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>No results found, please try again</p>
+        <p>No results found, Please search for another word.</p>
     {% endif %}
 </body>
 </html>

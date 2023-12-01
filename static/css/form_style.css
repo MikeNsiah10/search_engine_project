@@ -1,0 +1,70 @@
+/* static/css/style.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  background-image: url('images/background_1.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: #fff; 
+  text-align: center;
+  font-size: 35px;
+}
+
+
+h1:hover,h2:hover {
+  color: gray
+}
+
+h2 { 
+  color: #f8f8f8;
+  text-align: center;
+  font-size: 32px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top:15px;
+  height: 50px;
+
+}
+
+
+form {
+  margin-top: 20px;
+  text-align: center;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 400px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4285f4;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  width:425px;
+  margin-top: 18px;
+  border-radius: 8px;
+}
+
+input[type="submit"]:hover {
+  background-color: #3b73af;
+}
+
+/* Optional: Add some transition effect */
+input[type="submit"] {
+  transition: background-color 0.3s ease;
+}

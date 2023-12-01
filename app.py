@@ -28,9 +28,10 @@ def search():
         query_parser = QueryParser("content", index.schema)
         query_obj = query_parser.parse(query)
         results = searcher.search(query_obj)
+        
 
         return render_template('search_results.html', query=query, results=results)
-
+#handle internal server error
 @app.errorhandler(500)
 def internal_error(exception):
     return "<pre>" + traceback.format_exc() + "</pre>"

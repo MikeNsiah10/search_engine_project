@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form_style.css') }}">
     <title>QueryQuest</title>
 </head>
 <body>
-    <h1>Query Search Form</h1>
-    <form action="{{ url_for('search') }}" method="get">
-        <input type="text" id="query" placeholder="Enter your search query" name="q" required>
-        <input type="submit" value="Search">
-    </form>
+    <div class="container">
+        <h1>Query Search Form</h1>
+        <form action="{{ url_for('search') }}" method="get">
+            <input type="text" id="query" placeholder="Enter your search query?" name="q" required>
+            <br>
+            <input type="submit" value="Search" >
+        </form>
+        <br>
+        <h2>Explore the world of search</h2>
+    </div>
 </body>
 </html>

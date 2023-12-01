@@ -36,9 +36,9 @@ class Crawler():
                     if link_path not in self.visited_urls and link_path not in self.url_to_visit:
                         self.url_to_visit.append(link_path)
 
-    # Create the index with title, content, url
+    # Create the index with title, content, url, and definition
     def create_index(self):
-        schema = Schema(title=TEXT(stored=True), content=TEXT(stored=True), path=ID(stored=True))
+        schema = Schema(title=TEXT(stored=True), content=TEXT(stored=True), path=ID(stored=True), definition=TEXT(stored=True))
         index_dir = "indexdir"
         # Create directory if path does not exist
         if not os.path.exists(index_dir):
@@ -60,27 +60,33 @@ class Crawler():
             # Get the title of the page
             title_tag = soup.find('title')
             title_text = title_tag.text if title_tag else "No title was found"
-            # Get content_text
-            content_text = soup.get_text()
+            # Get content_text and remove HTML tags
+            content_text = ' '.join(soup.stripped_strings)
             # Add document to search index
             writer.add_document(title=title_text, content=content_text, path=url)
 
         writer.commit()
 
     def search(self, words):
-        # Perform search using the search index
-        index_dir = "indexdir"
-        index = open_dir(index_dir)
+    # Perform search using the search index
+     index_dir = "indexdir"
+     index = open_dir(index_dir)
 
-        with index.searcher() as searcher:
-            query = QueryParser("content", index.schema).parse(" ".join(words))
-            results = searcher.search(query)
-            # Return results of search with title, url, teaser_text
-            for result in results:
-                print("Title:", result['title'])
-                print("URL:", result['path'])
-                print("Teaser_Text:", result.highlights("content"))
-                print()
+     with index.searcher() as searcher:
+        query = QueryParser("content", index.schema).parse(" ".join(words))
+        results = searcher.search(query)
+        # Return results of search with title, url, teaser_text, and definition
+        for result in results:
+            # Extract title, URL, and teaser_text without HTML tags
+            title_text = result['title']
+            url = result['path']
+            teaser_text = ' '.join(BeautifulSoup(result.highlights("content"), 'html.parser').stripped_strings)
+
+            # Print the extracted information
+            print("Title:", title_text)
+            print("URL:", url)
+            print("Teaser_Text:", teaser_text)
+            print()
 
 # Testing code
 # Create an instance of the crawler class
