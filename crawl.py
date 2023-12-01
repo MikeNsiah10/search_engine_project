@@ -40,7 +40,7 @@ class Crawler():
     def create_index(self):
         schema = Schema(title=TEXT(stored=True), content=TEXT(stored=True), path=ID(stored=True), definition=TEXT(stored=True))
         index_dir = "indexdir"
-        # Create directory if path does not exist
+        # Create index_directory if index_directory does not exist
         if not os.path.exists(index_dir):
             os.makedirs(index_dir)
 
