@@ -71,8 +71,8 @@ class Crawler:
             return results
 
 # Testing code
-#create an instance of the class
-crawler = Crawler(starting_url='https://vm009.rz.uos.de/crawl/')
+# Create an instance of the crawler class
+crawler = Crawler(urls=['https://vm009.rz.uos.de/crawl/index.html'])
 crawler.crawl()
 search_word = "plapytus"  # 
 crawler.search(search_word)
