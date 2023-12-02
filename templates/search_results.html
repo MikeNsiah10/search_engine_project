@@ -6,21 +6,20 @@
     <title>Search Results</title>
 </head>
 <body>
-    <h1>Search Results for the query</h1>
-    <p>Query: {{ query }}</p>
+    <h1>Search Results for the query "{{ query }}"</h1>
     
     {% if results %}
         <ul>
             {% for result in results %}
                 <li>
-                    <h2><a href="{{ result['path'] }}" >{{ result['title'] }}</a></h2>
-                    <p><strong>URL:</strong> <a href="{{ result['path'] }}">{{ result['path'] }}</a></p>
-                    <p><strong>Teaser Text:</strong> {{ result['content'][:200] }}...</p>
+                    <h2><a href="{{ result['url'] }}" >{{ result['title'] }}</a></h2>
+                    <p><strong>URL:</strong> <a href="{{ result['url'] }}">{{ result['url'] }}</a></p>
+                    <p><strong>Content:</strong> {{ result['content'] }}</p>
                 </li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>No results found, Please search for another word.</p>
+        <p>No results found. Please search for another word.</p>
     {% endif %}
 </body>
 </html>
