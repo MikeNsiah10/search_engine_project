@@ -1,5 +1,3 @@
-/* static/css/style.css */
-
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -64,7 +62,6 @@ input[type="submit"]:hover {
   background-color: #3b73af;
 }
 
-/* Optional: Add some transition effect */
 input[type="submit"] {
   transition: background-color 0.3s ease;
 }
