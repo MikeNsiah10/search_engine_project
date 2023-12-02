@@ -14,7 +14,7 @@
                 <li>
                     <h2><a href="{{ result['url'] }}" >{{ result['title'] }}</a></h2>
                     <p><strong>URL:</strong> <a href="{{ result['url'] }}">{{ result['url'] }}</a></p>
-                    <p><strong>Content:</strong> {{ result['content'][:300] }}...</p>
+                    <p><strong>Content:</strong> {{ result['content'] }}</p>
                 </li>
             {% endfor %}
         </ul>
