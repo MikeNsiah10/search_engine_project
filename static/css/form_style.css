@@ -1,7 +1,8 @@
+
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
-  background-image: url('/static/images/back_ground.jpg'); 
+  background-image: url('/static/images/image.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -62,6 +63,7 @@ input[type="submit"]:hover {
   background-color: #3b73af;
 }
 
+/* Optional: Add some transition effect */
 input[type="submit"] {
   transition: background-color 0.3s ease;
 }
