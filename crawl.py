@@ -72,7 +72,7 @@ class Crawler:
 
 # Testing code
 # Create an instance of the crawler class
-crawler = Crawler(urls=['https://vm009.rz.uos.de/crawl/index.html'])
+crawler = Crawler(starting_url='https://vm009.rz.uos.de/crawl/index.html')
 crawler.crawl()
 search_word = "plapytus"  # 
 crawler.search(search_word)
